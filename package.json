@@ -1,0 +1,26 @@
+{
+  "name": "websocket-web-chat",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "ws": "^7.3.1"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "repository": {
+    "url": ""
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "websocket",
+    "express"
+  ]
+}
