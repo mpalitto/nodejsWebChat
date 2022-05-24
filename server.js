@@ -16,10 +16,12 @@ WEBserver.get('/ChatClient', function(req, res) {
 
 server = WEBserver
 //Websocket Server
-const { Server } = require('ws');
+//const { Server } = require('ws');
+const socketio = require('socket.io');
 
-const wss = new Server({ server });
 //const wss = new WebSocket.Server({ port: PORT })
+//const wss = new Server({ server });
+const wss = socketio(server);
 
 wss.on('connection', (ws) => {
   console.log('clients:');

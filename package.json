@@ -9,6 +9,8 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.2",
+    "socket.io": "^4.5.1",
+    "socketio": "^1.0.0",
     "ws": "^7.5.7"
   },
   "engines": {
