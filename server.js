@@ -4,17 +4,17 @@ const PORT = process.env.PORT || 80;
 
 //servi i file statici nella cartella 'public' (https://expressjs.com/en/starter/static-files.html)
 const WEBserver = express();
-const server = WEBserver.use(express.static('public'))
-.listen(PORT, () => console.log(`Listening on ${PORT}`));
+WEBserver.use('/', express.static('public')); // aggiungi il MIDDLEWARE per servire files di tipo statico
+WEBserver.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 //gestisci pagine dinamiche con ejs (https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application)
-WEBserver.set('view engine', 'ejs')
-.get('/ChatClient', function(req, res) {
+WEBserver.set('view engine', 'ejs');  //setto la proprietà 'view engine' a 'ejs'
+WEBserver.get('/ChatClient', function(req, res) {
   console.log("userName: "+req.query.name+" sex: "+req.query.sex);
   res.render('ChatClient',{sex: req.query.sex, name: req.query.name});
 });
 
-
+server = WEBserver
 //Websocket Server
 const { Server } = require('ws');
 
@@ -22,10 +22,10 @@ const wss = new Server({ server });
 //const wss = new WebSocket.Server({ port: PORT })
 
 wss.on('connection', (ws) => {
-  // console.log('clients:');
-  // console.dir(wss.clients);
-  // console.log('WS:');
-  // console.dir(ws);
+  console.log('clients:');
+  console.dir(wss.clients);
+  console.log('WS:');
+  console.dir(ws);
 
   ws.on('close', function close() {
     //console.log('disconnected');

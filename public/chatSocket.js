@@ -1,11 +1,12 @@
 /**
  * Javascript handling the WebSocket client code and chat/userlist display
  * Created by Karl Brown ( TheKarlBrown ) on 6/25/15.
+wss://nodejswebchat.matteopalitto.repl.co/
  */
 var connection;
 function onEntry(sex, name){
     // Create a new connection
-    connection = new WebSocket("ws://"+location.host);
+    connection = new WebSocket("wss://"+location.host);
     // set onopen WebSocket action to send the login name to the Server
     console.log("newUser "+sex+"::"+name);
     connection.onopen = function (e){ connection.send("newUser::"+sex+"::"+name); };
